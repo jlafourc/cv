@@ -15,6 +15,7 @@ jobs:
       - name: "Create a folder called output"
         run: |
           mkdir output
+          cp resume-stylesheet.css output/resume-stylesheet.css
       # Downloading the binaries directly, because they are newer and work better, than the ones that come with Ubuntu latest.
       - name: "Install pandoc and wkhtmltopdf"
         run: |
@@ -34,4 +35,4 @@ jobs:
       - uses: actions/upload-artifact@master
         with: # basically this will put resume.md, resume.html, resume.pdf and resume-stylesheet.css in a zip file.
           name: ${{ github.actor }}'s Resume
-          path: output
+          path: output/${{github.actor}}-resume.pdf
